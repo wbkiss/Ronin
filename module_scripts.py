@@ -8177,6 +8177,14 @@ scripts = [
          (val_mul, ":initial_gold", "$g_multiplayer_initial_gold_multiplier"),
          (val_div, ":initial_gold", 100),
          (player_set_gold, ":player_no", ":initial_gold"),
+		 # -- Perma-mute script Begin
+		 (player_get_unique_id, ":id", ":player_no"),
+		 (try_begin),
+            (this_or_next|eq, ":id", 1085169), # CC_Alyss
+            (eq, ":id", 3121891),           # CC_Platypus
+            (player_set_is_muted, ":player_no", 1, 1),
+         (try_end),
+		 # -- Perma-mute script End
          (call_script, "script_multiplayer_send_initial_information", ":player_no"),
        (try_end),
        
