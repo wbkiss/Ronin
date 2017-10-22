@@ -1,0 +1,119 @@
+#uncomment the line below when you set a valid administrator password
+set_pass_admin verboten
+#if you have premium members, set a password for them, otherwise delete/comment out the line below
+#uncomment the line below when you set a valid private password
+#set_pass_private 
+#set a valid server name(it can only contain letters numbers and _ such as JestServers_US)
+set_server_name Ronin
+#join server welcome message below
+set_welcome_message Welcome to Ronin server! Have fun and let others have fun too! The commandments of the server:      1. Thou shalt not slay your teammates!                     2. Thou shall not purposefully prolong rounds           3. Thou shall not abuse your fellow players or discriminate on any grounds
+#show on server list
+set_add_to_game_servers_list 1
+#Manual block set to 1, 0 for auto
+set_control_block_direction 1
+#Uncomment to disable ranged weapons
+#set_disallow_ranged_weapons 1
+#Friendly Fire
+set_friendly_fire 1
+set_melee_friendly_fire 1
+set_friendly_fire_damage_friend_ratio 100
+set_friendly_fire_damage_self_ratio 0
+set_auto_team_balance_limit 2
+set_valid_vote_ratio .51
+
+# Combat speed
+set_combat_speed 2 #Medium
+
+# victory conditions
+set_team_point_limit 4
+set_round_max_seconds 210
+
+#Votes
+set_kick_voteable 1
+set_ban_voteable 0
+set_maps_voteable 1
+set_factions_voteable 0
+set_num_bots_voteable 0
+set_enable_valve_anti_cheat 0
+
+#bots
+#<team_no> <amount> #sets number of bots for the specified team
+#set_bot_count 1 5
+#set_bot_count 2 5
+#max_num_bots <value> #set the max number of total bots the server is allowed to spawn (50-500)
+max_num_bots 10
+
+#other modes ( multiplayer_duel , multiplayer_bt , multiplayer_cf , multiplayer_hq , multiplayer_fd , multiplayer_sg , multiplayer_tdm, multiplayer_dm )
+set_mission multiplayer_bt
+set_map multi_scene_new_port_assault # Closed
+add_map multi_scene_1 # Ruins, mixed
+add_map multi_scene_back_to_back # Closed
+add_map multi_scene_7 # FbtR, Open
+# add_map multi_scene_hharkin # Closed, removed -- broken flags
+add_map multi_scene_enl_reveranvillage # Mixed
+add_map multi_scene_wnl_shariz_village # Closed
+add_map multi_scene_frosthaven # Open
+add_map multi_scene_enl_sandiboush # Closed
+add_map multi_scene_ruins_rebuilt # Mixed
+add_map multi_scene_river_village # Open
+add_map multi_scene_swadian_town # Closed
+add_map multi_scene_castellum # Open
+add_map multi_scene_goldrush # Mixed
+add_map multi_scene_solace # Mixed
+add_map multi_scene_wnl_mountain_fortress # Mixed
+add_map multi_scene_new_nord_town
+add_map multi_scene_enl_frostybattle # Mixed
+add_map multi_scene_rock_port # Mixed
+add_map multi_scene_enl_vendetta # Closed
+add_map multi_scene_abbey # Mixed
+add_map multi_scene_the_farm # Open
+add_map multi_scene_legacy_town # Mixed
+add_map multi_scene_wnl_fort_of_honour # Closed
+add_map multi_scene_liberty # Mixed
+add_map multi_scene_stronghold # Closed
+add_map multi_scene_desolation_valley # Open
+add_map multi_scene_wnl_verloren # Closed
+add_map multi_scene_wnl_castle_ruins # Open
+add_map multi_scene_dreiecksdorf # Mixed
+add_map multi_scene_steppe_village # Open
+add_map multi_scene_wnl_khudan_outskirts # Mixed
+add_map multi_scene_wnl_port_azur # Closed
+add_map multi_scene_ismirala # Mixed
+add_map multi_scene_naval_outpost # Mixed
+
+
+# add_map multi_scene_sea_raiders_landing # Open
+# add_map multi_scene_heisenburg # disabled, bugged flags
+# add_map multi_scene_wnl_dry_valley # disabled, bugged trees
+# add_map multi_scene_24 # Desert Town, need to add in the module_scenes, mixed
+
+#adding all kingdoms to both sides just to randomize all of them
+#adding less kingdoms will reduce the randomization set (used in set_randomize_factions command)
+add_factions fac_kingdom_1 fac_kingdom_1 # Swadia
+add_factions fac_kingdom_2 fac_kingdom_2 # Vaegirs
+# add_factions fac_kingdom_3 fac_kingdom_3 # Khergits
+add_factions fac_kingdom_4 fac_kingdom_4 # Nords
+add_factions fac_kingdom_5 fac_kingdom_5 # Rhodoks
+add_factions fac_kingdom_6 fac_kingdom_6 # Sarranids
+set_randomize_factions 1
+
+
+
+
+
+
+
+###########################################################################
+# If using another Configuration file such as Battle.txt be sure to copy and paste all of the below information or else risk suspension of account.
+#DO NOT EDIT player slots above the number you paid for, your account will be suspended if done.
+#setting max players, first one is non-premium member limit, second one is premium member limit(reserved slots)
+set_max_players 90 90
+#Setting this too high or too low will cause lag, make sure before changing to contact a tech.  1000000x number of slots is what we most recommend if all clients have high speed connections.
+set_upload_limit 100000000
+#DO NOT EDIT anything below this line.  Also be sure if you use a different module or config file that these settings are transferred over.
+set_port 7540
+set_steam_port 7541
+set_server_log_folder Logs
+set_server_ban_list_file Logs\ban_list.txt
+start
+ 
