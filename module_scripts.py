@@ -55178,23 +55178,24 @@ scripts = [
 	  (try_end),
 	  
 	  (assign, ":troop_is_avaliable", 1),
+	  (store_add, ":estimate_of_server_pop", ":total_players_in_team_x", ":total_players_in_team_x"), # Gets a rough estimate of the server population by multiplying team x * 2
 	  (try_begin),
 	    (is_between,"$adimi_tool_infantry_limit_value",0,100),
 	    (eq,":troop_class",multi_troop_class_infantry),
 		(ge,":variable_to_check_for","$adimi_tool_infantry_limit_value"),
-		(ge,server_get_max_num_players,"$adimi_tool_min_num_players_for_class_limit"), # Checks if there are enough players on the server to enable class limit
+		(ge,":estimate_of_server_pop","$adimi_tool_min_num_players_for_class_limit"), # Checks if there are enough players on the server to enable class limit
 		(assign,":troop_is_avaliable",0),
 		(else_try),
 	    (is_between,"$adimi_tool_archer_limit_value",0,100),
 	    (eq,":troop_class",multi_troop_class_archer),
 		(ge,":variable_to_check_for","$adimi_tool_archer_limit_value"),
-		(ge,server_get_max_num_players,"$adimi_tool_min_num_players_for_class_limit"),
+		(ge,":estimate_of_server_pop","$adimi_tool_min_num_players_for_class_limit"),
 		(assign,":troop_is_avaliable",0),
 		(else_try),
 	    (is_between,"$adimi_tool_cav_limit_value",0,100),
 	    (eq,":troop_class",multi_troop_class_cavalry),
 		(ge,":variable_to_check_for","$adimi_tool_cav_limit_value"),
-		(ge,server_get_max_num_players,"$adimi_tool_min_num_players_for_class_limit"),
+		(ge,":estimate_of_server_pop","$adimi_tool_min_num_players_for_class_limit"),
 		(assign,":troop_is_avaliable",0),
 		(try_end),
     (try_end),
