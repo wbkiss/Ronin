@@ -53119,8 +53119,7 @@ scripts = [
 	(assign, "$adimi_tool_infantry_limit_value", 100),#In % 0-100
 	(assign, "$adimi_tool_archer_limit_value", 40),#In % 0-100
 	(assign, "$adimi_tool_cav_limit_value", 40),#In % 0-100
-	(assign, "$adimi_tool_min_num_players_for_class_limit", 12), # Class limits will not be active unless the server population is greater than or equal to this value
-	(assign, "$adimi_tool_estimated_server_pop", 0), # Gets an estimate of the number of players on the server by multiplying ":total_players_in_team_x" * 2. Used In Check Troop Limit
+	(assign, "$adimi_tool_min_num_players_for_class_limit", 10), # Class limits will not be active unless the server population is greater than or equal to this value
 	(assign, "$adimi_tool_admin_start_teleport", 0),#
 	(assign, "$adimi_tool_mof",0),
 	(assign, "$adimi_tool_wnl_mof",1),#NEEDS CLIENT/ADMIN SYNC  wnl mof flag 2min before end
@@ -55156,12 +55155,12 @@ scripts = [
 	  (call_script,"script_cf_adimi_tool_count_classes_in_player_team",":troop_class",":player_team"),
 	  
 	  (assign,":class_amount",reg0),
+	  (assign,":total_active_players",reg1),
+	  
 	  #23:58 06.08.2013  By slots or by player amount
 	  (try_begin), 
 	    (eq,"$adimi_tool_class_limit_filter_typ",0),
 	    (server_get_max_num_players, ":total_players_in_team_x"),
-		 (assign, "$adimi_tool_estimated_server_pop", 0),
-		 (store_add, "$adimi_tool_estimated_server_pop", ":total_players_in_team_x", ":total_players_in_team_x"),	# estimated server pop used to check if there are enough players online to enable class limit
 	    (val_mul, ":class_amount", 10),
         (try_begin),
           (eq, ":total_players_in_team_x", 0),
@@ -55185,19 +55184,19 @@ scripts = [
 	    (is_between,"$adimi_tool_infantry_limit_value",0,100),
 	    (eq,":troop_class",multi_troop_class_infantry),
 		(ge,":variable_to_check_for","$adimi_tool_infantry_limit_value"),
-		(ge,"$adimi_tool_estimated_server_pop","$adimi_tool_min_num_players_for_class_limit"), # Checks if there are enough players on the server to enable class limit
+		(ge,":total_active_players","$adimi_tool_min_num_players_for_class_limit"), # Checks if there are enough players on the server to enable class limit
 		(assign,":troop_is_avaliable",0),
 		(else_try),
 	    (is_between,"$adimi_tool_archer_limit_value",0,100),
 	    (eq,":troop_class",multi_troop_class_archer),
 		(ge,":variable_to_check_for","$adimi_tool_archer_limit_value"),
-		(ge,"$adimi_tool_estimated_server_pop","$adimi_tool_min_num_players_for_class_limit"),
+		(ge,":total_active_players","$adimi_tool_min_num_players_for_class_limit"),
 		(assign,":troop_is_avaliable",0),
 		(else_try),
 	    (is_between,"$adimi_tool_cav_limit_value",0,100),
 	    (eq,":troop_class",multi_troop_class_cavalry),
 		(ge,":variable_to_check_for","$adimi_tool_cav_limit_value"),
-		(ge,"$adimi_tool_estimated_server_pop","$adimi_tool_min_num_players_for_class_limit"),
+		(ge,":total_active_players","$adimi_tool_min_num_players_for_class_limit"),
 		(assign,":troop_is_avaliable",0),
 		(try_end),
     (try_end),
@@ -55211,6 +55210,8 @@ scripts = [
    [
     (assign,":class_amount",0),
     (assign,":total_players_in_team_x",0),
+	(assign, ":total_active_players", 0), #server pop used to check if there are enough players online to enable class limit
+    
     (store_script_param_1, ":troop_class"),
     (store_script_param_2, ":player_team"),
 	#(get_max_players, ":max_players"),
@@ -55218,6 +55219,7 @@ scripts = [
     #(try_for_range, ":player", 1, ":max_players"),
       (player_is_active, ":player"),
       (player_get_team_no, ":team", ":player"),
+	  (val_add, ":total_active_players", 1),
       (eq, ":team", ":player_team"),
       (player_get_troop_id, ":other_trp_id", ":player"),
       (is_between, ":other_trp_id", multiplayer_troops_begin, multiplayer_troops_end),
@@ -55227,6 +55229,7 @@ scripts = [
 	  (eq,":troop_class",":other_classes"),
       (val_add, ":class_amount", 1),
     (try_end),
+	
 	(try_begin),
 	  (eq,"$adimi_tool_class_limit_filter_typ",1),#1 = by player amount ... 0 = by slot amount
 	  (val_mul, ":class_amount", 100),
@@ -55238,6 +55241,7 @@ scripts = [
       (try_end),
 	(try_end),
 	(assign,reg0,":class_amount"),
+	(assign,reg1,":total_active_players"),
      ]),
   
   ("cf_adimi_tool_admin_winch",
