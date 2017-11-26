@@ -61,7 +61,8 @@ add_map multi_scene_castellum # Open
 add_map multi_scene_goldrush # Mixed
 add_map multi_scene_solace # Mixed
 add_map multi_scene_wnl_mountain_fortress # Mixed
-add_map multi_scene_new_nord_town
+# add_map multi_scene_new_nord_town # Closed, disabled due to glitches.
+add_map multi_scene_11 # Classic Nord Town, Closed.
 add_map multi_scene_enl_frostybattle # Mixed
 add_map multi_scene_rock_port # Mixed
 add_map multi_scene_enl_vendetta # Closed
@@ -96,10 +97,6 @@ add_factions fac_kingdom_4 fac_kingdom_4 # Nords
 add_factions fac_kingdom_5 fac_kingdom_5 # Rhodoks
 add_factions fac_kingdom_6 fac_kingdom_6 # Sarranids
 set_randomize_factions 1
-
-
-
-
 
 
 
