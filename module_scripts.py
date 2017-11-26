@@ -53117,8 +53117,8 @@ scripts = [
 	(assign, "$g_horses_are_avaliable", 1),#1 is default
 	(assign, "$gotha_dev_mode", 0),#Develope mode  (  active by pressing ctrl + alt + F5 )
 	(assign, "$adimi_tool_infantry_limit_value", 100),#In % 0-100
-	(assign, "$adimi_tool_archer_limit_value", 40),#In % 0-100
-	(assign, "$adimi_tool_cav_limit_value", 40),#In % 0-100
+	(assign, "$adimi_tool_archer_limit_value", 30),#In % 0-100
+	(assign, "$adimi_tool_cav_limit_value", 30),#In % 0-100
 	(assign, "$adimi_tool_min_num_players_for_class_limit", 10), # Class limits will not be active unless the server population is greater than or equal to this value
 	(assign, "$adimi_tool_admin_start_teleport", 0),#
 	(assign, "$adimi_tool_mof",0),
