@@ -54403,8 +54403,7 @@ scripts = [
 	   (neg|player_is_admin,":player"),
 	   (player_get_unique_id,":player_uid",":player"),
 	   (try_begin),
-	     (this_or_next|eq,":player_uid",1996667), # Mudhawk
-	     
+	     (this_or_next|eq,":player_uid",919212), # Hans
 	     (eq,":player_uid",777777777777),
 		 (player_set_slot,":player",adimi_tool_admin_level_low,1),
 		 (multiplayer_send_2_int_to_player, ":player", adimi_tool_client_event, adimi_tool_set_admin_level,1),
@@ -54413,7 +54412,10 @@ scripts = [
 	     (this_or_next|eq,":player_uid",2939371), # Obedient_Duckbill
 	     (this_or_next|eq,":player_uid",667801), # Revelation/GK_Marquis
 		 (this_or_next|eq,":player_uid",2238752), # Hawkeye
-		 (this_or_next|eq,":player_uid",1502092), # Xearian
+		 (this_or_next|eq,":player_uid",1660069), # Jeffrey9792
+		 (this_or_next|eq,":player_uid",111921), # Joan
+		 (this_or_next|eq,":player_uid",3829044), # Joan 2nd key
+		 (this_or_next|eq,":player_uid",1996667), # Mudhawk
 	     (eq,":player_uid",190390), # WilySly
 		 (player_set_slot,":player",adimi_tool_admin_level_mid,1),
 		 (multiplayer_send_2_int_to_player, ":player", adimi_tool_client_event, adimi_tool_set_admin_level,2),
@@ -54427,6 +54429,7 @@ scripts = [
 		 (this_or_next|eq,":player_uid",14262), # Elthore
 	     (this_or_next|eq,":player_uid",1718082), # Aporta
 		 (this_or_next|eq,":player_uid",646055), # Courtney
+		 (this_or_next|eq,":player_uid",1502092), # Xearian
 	     (eq,":player_uid",163189), # Earacorn/[HB] Corn
 		 (player_set_slot,":player",adimi_tool_admin_level_high,1),
 		 (multiplayer_send_2_int_to_player, ":player", adimi_tool_client_event, adimi_tool_set_admin_level,3),
