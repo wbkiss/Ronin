@@ -8180,7 +8180,7 @@ scripts = [
 		 # -- Perma-mute script Begin
 		 (player_get_unique_id, ":id", ":player_no"),
 		 (try_begin),
-            (this_or_next|eq, ":id", 1085169), # CC_Alyss
+            #(this_or_next|eq, ":id", 1085169), # CC_Alyss
             (eq, ":id", 3121891),           # CC_Platypus
             (player_set_is_muted, ":player_no", 1, 1),
          (try_end),
