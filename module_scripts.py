@@ -8180,7 +8180,7 @@ scripts = [
 		 # -- Perma-mute script Begin
 		 (player_get_unique_id, ":id", ":player_no"),
 		 (try_begin),
-            (this_or_next|eq, ":id", 1085169), # CC_Alyss
+            #(this_or_next|eq, ":id", 1085169), # CC_Alyss
             (eq, ":id", 3121891),           # CC_Platypus
             (player_set_is_muted, ":player_no", 1, 1),
          (try_end),
@@ -53120,10 +53120,16 @@ scripts = [
 	(assign, "$g_horses_are_avaliable", 1),#1 is default
 	(assign, "$gotha_dev_mode", 0),#Develope mode  (  active by pressing ctrl + alt + F5 )
 	(assign, "$adimi_tool_infantry_limit_value", 100),#In % 0-100
+<<<<<<< HEAD
 	(assign, "$adimi_tool_archer_limit_value", 40),#In % 0-100
 	(assign, "$adimi_tool_cav_limit_value", 40),#In % 0-100
 	(assign, "$adimi_tool_min_num_players_for_class_limit", 12), # Class limits will not be active unless the server population is greater than or equal to this value
 	(assign, "$adimi_tool_estimated_server_pop", 0), # Gets an estimate of the number of players on the server by multiplying ":total_players_in_team_x" * 2. Used In Check Troop Limit
+=======
+	(assign, "$adimi_tool_archer_limit_value", 30),#In % 0-100
+	(assign, "$adimi_tool_cav_limit_value", 30),#In % 0-100
+	(assign, "$adimi_tool_min_num_players_for_class_limit", 10), # Class limits will not be active unless the server population is greater than or equal to this value
+>>>>>>> 0c8e56b534e57a3ddafd6477de1b2d38b368f5f7
 	(assign, "$adimi_tool_admin_start_teleport", 0),#
 	(assign, "$adimi_tool_mof",0),
 	(assign, "$adimi_tool_wnl_mof",1),#NEEDS CLIENT/ADMIN SYNC  wnl mof flag 2min before end
@@ -54407,8 +54413,7 @@ scripts = [
 	   (neg|player_is_admin,":player"),
 	   (player_get_unique_id,":player_uid",":player"),
 	   (try_begin),
-	     (this_or_next|eq,":player_uid",1996667), # Mudhawk
-	     
+	     (this_or_next|eq,":player_uid",919212), # Hans
 	     (eq,":player_uid",777777777777),
 		 (player_set_slot,":player",adimi_tool_admin_level_low,1),
 		 (multiplayer_send_2_int_to_player, ":player", adimi_tool_client_event, adimi_tool_set_admin_level,1),
@@ -54417,7 +54422,10 @@ scripts = [
 	     (this_or_next|eq,":player_uid",2939371), # Obedient_Duckbill
 	     (this_or_next|eq,":player_uid",667801), # Revelation/GK_Marquis
 		 (this_or_next|eq,":player_uid",2238752), # Hawkeye
-		 (this_or_next|eq,":player_uid",1502092), # Xearian
+		 (this_or_next|eq,":player_uid",1660069), # Jeffrey9792
+		 (this_or_next|eq,":player_uid",111921), # Joan
+		 (this_or_next|eq,":player_uid",3829044), # Joan 2nd key
+		 (this_or_next|eq,":player_uid",1996667), # Mudhawk
 	     (eq,":player_uid",190390), # WilySly
 		 (player_set_slot,":player",adimi_tool_admin_level_mid,1),
 		 (multiplayer_send_2_int_to_player, ":player", adimi_tool_client_event, adimi_tool_set_admin_level,2),
@@ -54431,6 +54439,7 @@ scripts = [
 		 (this_or_next|eq,":player_uid",14262), # Elthore
 	     (this_or_next|eq,":player_uid",1718082), # Aporta
 		 (this_or_next|eq,":player_uid",646055), # Courtney
+		 (this_or_next|eq,":player_uid",1502092), # Xearian
 	     (eq,":player_uid",163189), # Earacorn/[HB] Corn
 		 (player_set_slot,":player",adimi_tool_admin_level_high,1),
 		 (multiplayer_send_2_int_to_player, ":player", adimi_tool_client_event, adimi_tool_set_admin_level,3),
@@ -55159,6 +55168,8 @@ scripts = [
 	  (call_script,"script_cf_adimi_tool_count_classes_in_player_team",":troop_class",":player_team"),
 	  
 	  (assign,":class_amount",reg0),
+	  (assign,":total_active_players",reg1),
+	  
 	  #23:58 06.08.2013  By slots or by player amount
 	  (try_begin), 
 	    (eq,"$adimi_tool_class_limit_filter_typ",0),
@@ -55187,19 +55198,31 @@ scripts = [
 	    (is_between,"$adimi_tool_infantry_limit_value",0,100),
 	    (eq,":troop_class",multi_troop_class_infantry),
 		(ge,":variable_to_check_for","$adimi_tool_infantry_limit_value"),
+<<<<<<< HEAD
 		(ge,"$estimated_server_pop","$adimi_tool_min_num_players_for_class_limit"), # Checks if there are enough players on the server to enable class limit
+=======
+		(ge,":total_active_players","$adimi_tool_min_num_players_for_class_limit"), # Checks if there are enough players on the server to enable class limit
+>>>>>>> 0c8e56b534e57a3ddafd6477de1b2d38b368f5f7
 		(assign,":troop_is_avaliable",0),
 		(else_try),
 	    (is_between,"$adimi_tool_archer_limit_value",0,100),
 	    (eq,":troop_class",multi_troop_class_archer),
 		(ge,":variable_to_check_for","$adimi_tool_archer_limit_value"),
+<<<<<<< HEAD
 		(ge,"$estimated_server_pop","$adimi_tool_min_num_players_for_class_limit"),
+=======
+		(ge,":total_active_players","$adimi_tool_min_num_players_for_class_limit"),
+>>>>>>> 0c8e56b534e57a3ddafd6477de1b2d38b368f5f7
 		(assign,":troop_is_avaliable",0),
 		(else_try),
 	    (is_between,"$adimi_tool_cav_limit_value",0,100),
 	    (eq,":troop_class",multi_troop_class_cavalry),
 		(ge,":variable_to_check_for","$adimi_tool_cav_limit_value"),
+<<<<<<< HEAD
 		(ge,"$estimated_server_pop","$adimi_tool_min_num_players_for_class_limit"),
+=======
+		(ge,":total_active_players","$adimi_tool_min_num_players_for_class_limit"),
+>>>>>>> 0c8e56b534e57a3ddafd6477de1b2d38b368f5f7
 		(assign,":troop_is_avaliable",0),
 		(try_end),
     (try_end),
@@ -55213,6 +55236,8 @@ scripts = [
    [
     (assign,":class_amount",0),
     (assign,":total_players_in_team_x",0),
+	(assign, ":total_active_players", 0), #server pop used to check if there are enough players online to enable class limit
+    
     (store_script_param_1, ":troop_class"),
     (store_script_param_2, ":player_team"),
 	#(get_max_players, ":max_players"),
@@ -55220,6 +55245,7 @@ scripts = [
     #(try_for_range, ":player", 1, ":max_players"),
       (player_is_active, ":player"),
       (player_get_team_no, ":team", ":player"),
+	  (val_add, ":total_active_players", 1),
       (eq, ":team", ":player_team"),
       (player_get_troop_id, ":other_trp_id", ":player"),
       (is_between, ":other_trp_id", multiplayer_troops_begin, multiplayer_troops_end),
@@ -55229,6 +55255,7 @@ scripts = [
 	  (eq,":troop_class",":other_classes"),
       (val_add, ":class_amount", 1),
     (try_end),
+	
 	(try_begin),
 	  (eq,"$adimi_tool_class_limit_filter_typ",1),#1 = by player amount ... 0 = by slot amount
 	  (val_mul, ":class_amount", 100),
@@ -55240,6 +55267,7 @@ scripts = [
       (try_end),
 	(try_end),
 	(assign,reg0,":class_amount"),
+	(assign,reg1,":total_active_players"),
      ]),
   
   ("cf_adimi_tool_admin_winch",
