@@ -11611,8 +11611,7 @@ scripts = [
    [
      (assign, ":result", 0),
      (assign, "$g_multiplayer_poll_ended", 1),
-	  (multiplayer_get_my_player, ":player"), # get player id(?)
-     (store_add, ":total_votes", "$g_multiplayer_poll_yes_count", "$g_multiplayer_poll_no_count"),
+	  (store_add, ":total_votes", "$g_multiplayer_poll_yes_count", "$g_multiplayer_poll_no_count"),
      (store_sub, ":abstain_votes", "$g_multiplayer_poll_num_sent", ":total_votes"),
      (store_mul, ":nos_from_abstains", 3, ":abstain_votes"),
      (val_div, ":nos_from_abstains", 10), #30% of abstains are counted as no
@@ -11628,13 +11627,13 @@ scripts = [
        (try_begin),
          (eq, "$g_multiplayer_poll_to_show", 1), #kick player
          (try_begin),
-			  (neg|player_is_admin, ":player") # do not kick if player is an admin
+			  (neg|player_is_admin, "$g_multiplayer_poll_value_to_show") # do not kick if player is an admin
            (player_is_active, "$g_multiplayer_poll_value_to_show"),
            (kick_player, "$g_multiplayer_poll_value_to_show"), 
          (try_end),
        (else_try),
          (eq, "$g_multiplayer_poll_to_show", 2), #ban player
-			(neg|player_is_admin, ":player"), # do not ban if player is an admin
+			(neg|player_is_admin, "$g_multiplayer_poll_value_to_show"), # do not ban if player is an admin
          (ban_player_using_saved_ban_info), #already loaded at the beginning of the poll
        (else_try),
          (eq, "$g_multiplayer_poll_to_show", 3), #change map with factions
