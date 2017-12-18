@@ -75,7 +75,7 @@ add_map multi_scene_stronghold # Closed
 add_map multi_scene_desolation_valley # Open
 add_map multi_scene_wnl_verloren # Closed
 add_map multi_scene_wnl_castle_ruins # Open
-add_map multi_scene_dreiecksdorf # Mixed
+# add_map multi_scene_dreiecksdorf # Mixed. Disabled until the multiple roof glitches are fixed
 add_map multi_scene_steppe_village # Open
 add_map multi_scene_wnl_khudan_outskirts # Mixed
 add_map multi_scene_wnl_port_azur # Closed
