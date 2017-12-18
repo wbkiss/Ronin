@@ -11611,6 +11611,7 @@ scripts = [
    [
      (assign, ":result", 0),
      (assign, "$g_multiplayer_poll_ended", 1),
+	  (multiplayer_get_my_player, ":player"), # get player id(?)
      (store_add, ":total_votes", "$g_multiplayer_poll_yes_count", "$g_multiplayer_poll_no_count"),
      (store_sub, ":abstain_votes", "$g_multiplayer_poll_num_sent", ":total_votes"),
      (store_mul, ":nos_from_abstains", 3, ":abstain_votes"),
@@ -11627,11 +11628,13 @@ scripts = [
        (try_begin),
          (eq, "$g_multiplayer_poll_to_show", 1), #kick player
          (try_begin),
+			  (neg|player_is_admin, ":player") # do not kick if player is an admin
            (player_is_active, "$g_multiplayer_poll_value_to_show"),
-           (kick_player, "$g_multiplayer_poll_value_to_show"),
+           (kick_player, "$g_multiplayer_poll_value_to_show"), 
          (try_end),
        (else_try),
          (eq, "$g_multiplayer_poll_to_show", 2), #ban player
+			(neg|player_is_admin, ":player"), # do not ban if player is an admin
          (ban_player_using_saved_ban_info), #already loaded at the beginning of the poll
        (else_try),
          (eq, "$g_multiplayer_poll_to_show", 3), #change map with factions
@@ -53120,6 +53123,7 @@ scripts = [
 	(assign, "$adimi_tool_archer_limit_value", 40),#In % 0-100
 	(assign, "$adimi_tool_cav_limit_value", 40),#In % 0-100
 	(assign, "$adimi_tool_min_num_players_for_class_limit", 12), # Class limits will not be active unless the server population is greater than or equal to this value
+	(assign, "$adimi_tool_estimated_server_pop", 0), # Gets an estimate of the number of players on the server by multiplying ":total_players_in_team_x" * 2. Used In Check Troop Limit
 	(assign, "$adimi_tool_admin_start_teleport", 0),#
 	(assign, "$adimi_tool_mof",0),
 	(assign, "$adimi_tool_wnl_mof",1),#NEEDS CLIENT/ADMIN SYNC  wnl mof flag 2min before end
@@ -55159,6 +55163,7 @@ scripts = [
 	  (try_begin), 
 	    (eq,"$adimi_tool_class_limit_filter_typ",0),
 	    (server_get_max_num_players, ":total_players_in_team_x"),
+		 (store_add, "$estimated_server_pop", ":total_players_in_team_x", ":total_players_in_team_x"),	# estimated server pop used to check if there are enough players online to enable class limit
 	    (val_mul, ":class_amount", 10),
         (try_begin),
           (eq, ":total_players_in_team_x", 0),
@@ -55178,24 +55183,23 @@ scripts = [
 	  (try_end),
 	  
 	  (assign, ":troop_is_avaliable", 1),
-	  (store_add, ":estimate_of_server_pop", ":total_players_in_team_x", ":total_players_in_team_x"), # Gets a rough estimate of the server population by multiplying team x * 2
 	  (try_begin),
 	    (is_between,"$adimi_tool_infantry_limit_value",0,100),
 	    (eq,":troop_class",multi_troop_class_infantry),
 		(ge,":variable_to_check_for","$adimi_tool_infantry_limit_value"),
-		(ge,":estimate_of_server_pop","$adimi_tool_min_num_players_for_class_limit"), # Checks if there are enough players on the server to enable class limit
+		(ge,"$estimated_server_pop","$adimi_tool_min_num_players_for_class_limit"), # Checks if there are enough players on the server to enable class limit
 		(assign,":troop_is_avaliable",0),
 		(else_try),
 	    (is_between,"$adimi_tool_archer_limit_value",0,100),
 	    (eq,":troop_class",multi_troop_class_archer),
 		(ge,":variable_to_check_for","$adimi_tool_archer_limit_value"),
-		(ge,":estimate_of_server_pop","$adimi_tool_min_num_players_for_class_limit"),
+		(ge,"$estimated_server_pop","$adimi_tool_min_num_players_for_class_limit"),
 		(assign,":troop_is_avaliable",0),
 		(else_try),
 	    (is_between,"$adimi_tool_cav_limit_value",0,100),
 	    (eq,":troop_class",multi_troop_class_cavalry),
 		(ge,":variable_to_check_for","$adimi_tool_cav_limit_value"),
-		(ge,":estimate_of_server_pop","$adimi_tool_min_num_players_for_class_limit"),
+		(ge,"$estimated_server_pop","$adimi_tool_min_num_players_for_class_limit"),
 		(assign,":troop_is_avaliable",0),
 		(try_end),
     (try_end),
