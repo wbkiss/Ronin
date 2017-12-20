@@ -11627,15 +11627,20 @@ scripts = [
        (try_begin),
          (eq, "$g_multiplayer_poll_to_show", 1), #kick player
 			(try_begin),
-			 (player_is_admin, "$g_multiplayer_poll_value_to_show"), # do not kick if player is an admin 
-			 (assign, ":result", 2),
-			 (player_is_active, "$g_multiplayer_poll_value_to_show"),
-			 (kick_player, "$g_multiplayer_poll_value_to_show"), 
-         (try_end),
-       (else_try),
+			  (neg|player_slot_eq,"$g_multiplayer_poll_value_to_show",adimi_tool_admin_level_low,1),
+			  (neg|player_slot_eq,"$g_multiplayer_poll_value_to_show",adimi_tool_admin_level_mid,1),
+			  (neg|player_slot_eq,"$g_multiplayer_poll_value_to_show",adimi_tool_admin_level_high,1),
+			  (neg|player_is_admin, "$g_multiplayer_poll_value_to_show"),
+			  (player_is_active, "$g_multiplayer_poll_value_to_show"),
+			  (kick_player, "$g_multiplayer_poll_value_to_show"), 
+		   (try_end),
+		(else_try),
          (eq, "$g_multiplayer_poll_to_show", 2), #ban player
-		   (player_is_admin, "$g_multiplayer_poll_value_to_show"), # do not ban if player is an admin
-			(assign, ":result", 2),
+		     (neg|player_slot_eq,"$g_multiplayer_poll_value_to_show",adimi_tool_admin_level_low,1),
+			  (neg|player_slot_eq,"$g_multiplayer_poll_value_to_show",adimi_tool_admin_level_mid,1),
+			  (neg|player_slot_eq,"$g_multiplayer_poll_value_to_show",adimi_tool_admin_level_high,1),
+			  (neg|player_is_admin, "$g_multiplayer_poll_value_to_show"),
+			  (player_is_active, "$g_multiplayer_poll_value_to_show"),
          (ban_player_using_saved_ban_info), #already loaded at the beginning of the poll
        (else_try),
          (eq, "$g_multiplayer_poll_to_show", 3), #change map with factions
