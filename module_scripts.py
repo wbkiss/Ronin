@@ -10237,7 +10237,7 @@ scripts = [
             (try_begin),
               (eq, "$g_multiplayer_kick_voteable", 1),
               (player_is_active, ":value_2"),
-              (assign, ":continue", 1),
+				  (assign, ":continue", 1),
             (try_end),
           (else_try),
             (eq, ":value", 2), # banning a player
@@ -11626,14 +11626,16 @@ scripts = [
        (assign, ":result", 1),
        (try_begin),
          (eq, "$g_multiplayer_poll_to_show", 1), #kick player
-         (try_begin),
-			  (neg|player_is_admin, "$g_multiplayer_poll_value_to_show") # do not kick if player is an admin
-           (player_is_active, "$g_multiplayer_poll_value_to_show"),
-           (kick_player, "$g_multiplayer_poll_value_to_show"), 
+			(try_begin),
+			 (player_is_admin, "$g_multiplayer_poll_value_to_show"), # do not kick if player is an admin 
+			 (assign, ":result", 2),
+			 (player_is_active, "$g_multiplayer_poll_value_to_show"),
+			 (kick_player, "$g_multiplayer_poll_value_to_show"), 
          (try_end),
        (else_try),
          (eq, "$g_multiplayer_poll_to_show", 2), #ban player
-			(neg|player_is_admin, "$g_multiplayer_poll_value_to_show"), # do not ban if player is an admin
+		   (player_is_admin, "$g_multiplayer_poll_value_to_show"), # do not ban if player is an admin
+			(assign, ":result", 2),
          (ban_player_using_saved_ban_info), #already loaded at the beginning of the poll
        (else_try),
          (eq, "$g_multiplayer_poll_to_show", 3), #change map with factions
@@ -11664,12 +11666,12 @@ scripts = [
 	 (try_begin),
 	  (neq, "$adimi_tool_poll_override", 1),
 	  (neq, "$adimi_tool_poll_override", 2),
-      (call_script,"script_adimi_tool_poll_result",":result"),
+	   (call_script,"script_adimi_tool_poll_result",":result"),
      (try_end),
      (assign, "$adimi_tool_poll_override", -1),#1 = accepted  2= rejected -1= nothing
-     (eq, ":result", 1),
+	  (eq, ":result", 1), 
      ]),
-
+                                                                                                                       
   # script_multiplayer_accept_duel
   # Input: arg1 = agent_no, arg2 = agent_no_offerer
   # Output: none
@@ -53119,16 +53121,13 @@ scripts = [
 	(assign, "$g_horses_are_avaliable", 1),#1 is default
 	(assign, "$gotha_dev_mode", 0),#Develope mode  (  active by pressing ctrl + alt + F5 )
 	(assign, "$adimi_tool_infantry_limit_value", 100),#In % 0-100
-<<<<<<< HEAD
 	(assign, "$adimi_tool_archer_limit_value", 40),#In % 0-100
 	(assign, "$adimi_tool_cav_limit_value", 40),#In % 0-100
 	(assign, "$adimi_tool_min_num_players_for_class_limit", 12), # Class limits will not be active unless the server population is greater than or equal to this value
 	(assign, "$adimi_tool_estimated_server_pop", 0), # Gets an estimate of the number of players on the server by multiplying ":total_players_in_team_x" * 2. Used In Check Troop Limit
-=======
 	(assign, "$adimi_tool_archer_limit_value", 30),#In % 0-100
 	(assign, "$adimi_tool_cav_limit_value", 30),#In % 0-100
 	(assign, "$adimi_tool_min_num_players_for_class_limit", 10), # Class limits will not be active unless the server population is greater than or equal to this value
->>>>>>> 0c8e56b534e57a3ddafd6477de1b2d38b368f5f7
 	(assign, "$adimi_tool_admin_start_teleport", 0),#
 	(assign, "$adimi_tool_mof",0),
 	(assign, "$adimi_tool_wnl_mof",1),#NEEDS CLIENT/ADMIN SYNC  wnl mof flag 2min before end
@@ -54420,11 +54419,11 @@ scripts = [
 	     (this_or_next|eq,":player_uid",1991520), # Dangel
 	     (this_or_next|eq,":player_uid",2939371), # Obedient_Duckbill
 	     (this_or_next|eq,":player_uid",667801), # Revelation/GK_Marquis
-		 (this_or_next|eq,":player_uid",2238752), # Hawkeye
-		 (this_or_next|eq,":player_uid",1660069), # Jeffrey9792
-		 (this_or_next|eq,":player_uid",111921), # Joan
-		 (this_or_next|eq,":player_uid",3829044), # Joan 2nd key
-		 (this_or_next|eq,":player_uid",1996667), # Mudhawk
+		  (this_or_next|eq,":player_uid",2238752), # Hawkeye
+		  (this_or_next|eq,":player_uid",1660069), # Jeffrey9792
+		  (this_or_next|eq,":player_uid",111921), # Joan
+		  (this_or_next|eq,":player_uid",3829044), # Joan 2nd key
+		  (this_or_next|eq,":player_uid",1996667), # Mudhawk
 	     (eq,":player_uid",190390), # WilySly
 		 (player_set_slot,":player",adimi_tool_admin_level_mid,1),
 		 (multiplayer_send_2_int_to_player, ":player", adimi_tool_client_event, adimi_tool_set_admin_level,2),
@@ -54434,11 +54433,11 @@ scripts = [
 	     (this_or_next|eq,":player_uid",67803), # Fisherman
 	     (this_or_next|eq,":player_uid",404925), # KissMyAxe
 	     (this_or_next|eq,":player_uid",2744142), # Pomeranian
-		 (this_or_next|eq,":player_uid",949274), # Washburn
-		 (this_or_next|eq,":player_uid",14262), # Elthore
+		  (this_or_next|eq,":player_uid",949274), # Washburn
+		  (this_or_next|eq,":player_uid",14262), # Elthore
 	     (this_or_next|eq,":player_uid",1718082), # Aporta
-		 (this_or_next|eq,":player_uid",646055), # Courtney
-		 (this_or_next|eq,":player_uid",1502092), # Xearian
+		  (this_or_next|eq,":player_uid",646055), # Courtney
+		  (this_or_next|eq,":player_uid",1502092), # Xearian
 	     (eq,":player_uid",163189), # Earacorn/[HB] Corn
 		 (player_set_slot,":player",adimi_tool_admin_level_high,1),
 		 (multiplayer_send_2_int_to_player, ":player", adimi_tool_client_event, adimi_tool_set_admin_level,3),
@@ -55197,31 +55196,22 @@ scripts = [
 	    (is_between,"$adimi_tool_infantry_limit_value",0,100),
 	    (eq,":troop_class",multi_troop_class_infantry),
 		(ge,":variable_to_check_for","$adimi_tool_infantry_limit_value"),
-<<<<<<< HEAD
 		(ge,"$estimated_server_pop","$adimi_tool_min_num_players_for_class_limit"), # Checks if there are enough players on the server to enable class limit
-=======
 		(ge,":total_active_players","$adimi_tool_min_num_players_for_class_limit"), # Checks if there are enough players on the server to enable class limit
->>>>>>> 0c8e56b534e57a3ddafd6477de1b2d38b368f5f7
 		(assign,":troop_is_avaliable",0),
 		(else_try),
 	    (is_between,"$adimi_tool_archer_limit_value",0,100),
 	    (eq,":troop_class",multi_troop_class_archer),
 		(ge,":variable_to_check_for","$adimi_tool_archer_limit_value"),
-<<<<<<< HEAD
 		(ge,"$estimated_server_pop","$adimi_tool_min_num_players_for_class_limit"),
-=======
 		(ge,":total_active_players","$adimi_tool_min_num_players_for_class_limit"),
->>>>>>> 0c8e56b534e57a3ddafd6477de1b2d38b368f5f7
 		(assign,":troop_is_avaliable",0),
 		(else_try),
 	    (is_between,"$adimi_tool_cav_limit_value",0,100),
 	    (eq,":troop_class",multi_troop_class_cavalry),
 		(ge,":variable_to_check_for","$adimi_tool_cav_limit_value"),
-<<<<<<< HEAD
 		(ge,"$estimated_server_pop","$adimi_tool_min_num_players_for_class_limit"),
-=======
 		(ge,":total_active_players","$adimi_tool_min_num_players_for_class_limit"),
->>>>>>> 0c8e56b534e57a3ddafd6477de1b2d38b368f5f7
 		(assign,":troop_is_avaliable",0),
 		(try_end),
     (try_end),
