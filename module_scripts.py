@@ -51795,8 +51795,8 @@ scripts = [
 	  (try_end),
 	(else_try),
       (eq,":typ",adimi_tool_force_teambalance),
-	  (neq, "$g_multiplayer_game_type", multiplayer_game_type_deathmatch),
-	  (neq, "$g_multiplayer_game_type", multiplayer_game_type_duel),
+	  #(neq, "$g_multiplayer_game_type", multiplayer_game_type_deathmatch),
+	  #(neq, "$g_multiplayer_game_type", multiplayer_game_type_duel),
 	  (this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_low,1),
 	  (this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_mid,1),
 	  (this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_high,1),
@@ -51935,8 +51935,10 @@ scripts = [
 	    (assign,":send_string",2),#No result message
 	  (try_end),
     (else_try),
-      (eq,":typ",adimi_tool_heal),
+      (eq,":typ",adimi_tool_heal), # Heal
 	  (try_begin),
+	    (this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_low,1),
+	    (this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_mid,1),
 	    (this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_high,1),
 	    (player_is_admin, ":admin_player_id"),
         #value_1 = Player ID
@@ -51952,7 +51954,7 @@ scripts = [
 	    (assign,":send_string",2),#No result message
 	  (try_end),
     (else_try),
-      (eq,":typ",adimi_tool_godmode),
+      (eq,":typ",adimi_tool_godmode), # God mode
 	  (try_begin),
 	    (player_is_admin, ":admin_player_id"),
         #value_1 = Player ID
@@ -51968,7 +51970,7 @@ scripts = [
 	    (assign,":send_string",2),#No result message
 	  (try_end),
     (else_try),
-      (eq,":typ",adimi_tool_gold),
+      (eq,":typ",adimi_tool_gold), # Gold
 	  (this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_high,1),
 	  (player_is_admin, ":admin_player_id"),
       #value_1 = Player ID
@@ -51978,7 +51980,7 @@ scripts = [
 	  (eq,":send_string",1),#If it must send a string.
 	  (assign,reg5,":value_2"),
     (else_try),
-      (eq,":typ",adimi_tool_gameid),
+      (eq,":typ",adimi_tool_gameid), # Print game id
 	  (this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_low,1),
 	  (this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_mid,1),
 	  (this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_high,1),
@@ -52011,7 +52013,7 @@ scripts = [
       (agent_set_animation, ":agent", ":value_2", ":value_3"), #channel_no default is 0. Top body only animations should have channel_no value as 1.
       (assign,":send_string",2),#No result message
     (else_try),
-      (eq,":typ",adimi_tool_mute),
+     (eq,":typ",adimi_tool_mute), # Mute
 	  (this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_low,1),
 	  (this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_mid,1),
 	  (this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_high,1),
@@ -52115,7 +52117,9 @@ scripts = [
       (try_end),
 	  (assign,reg5,":value_2"),
 	(else_try),
-      (eq,":typ",adimi_tool_switch_team),
+      (eq,":typ",adimi_tool_switch_team), # Switch teams
+		(this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_low,1),
+		(this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_mid,1),
 	  (this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_high,1),
       (player_is_admin, ":admin_player_id"),
       #value_1 = Player ID
@@ -52145,7 +52149,7 @@ scripts = [
 	  (try_end),
 	  (assign,reg5,":value_2"),
 	(else_try),
-      (eq,":typ",adimi_tool_teleport),
+      (eq,":typ",adimi_tool_teleport), # Teleport
 	  (try_begin),
 	    (this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_high,1),
         (player_is_admin, ":admin_player_id"),
@@ -52243,9 +52247,10 @@ scripts = [
 	  (agent_refill_wielded_shield_hit_points, ":player_agent"),
 	  (agent_refill_ammo,":player_agent"),
 	(else_try),
-      (eq, ":typ", adimi_tool_freeze),
+      (eq, ":typ", adimi_tool_freeze), # Freeze
 	  #value_1 = freeze or unfreeze
 	  #value_2 = player id
+	  (this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_low,1),
 	  (this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_mid,1),
 	  (this_or_next|player_slot_eq,":admin_player_id",adimi_tool_admin_level_high,1),
       (player_is_admin, ":admin_player_id"),
@@ -53129,7 +53134,6 @@ scripts = [
 	(assign, "$adimi_tool_archer_limit_value", 40),#In % 0-100
 	(assign, "$adimi_tool_cav_limit_value", 40),#In % 0-100
 	(assign, "$adimi_tool_min_num_players_for_class_limit", 12), # Class limits will not be active unless the server population is greater than or equal to this value
-	(assign, "$adimi_tool_estimated_server_pop", 0), # Gets an estimate of the number of players on the server by multiplying ":total_players_in_team_x" * 2. Used In Check Troop Limit
 	(assign, "$adimi_tool_archer_limit_value", 30),#In % 0-100
 	(assign, "$adimi_tool_cav_limit_value", 30),#In % 0-100
 	(assign, "$adimi_tool_min_num_players_for_class_limit", 10), # Class limits will not be active unless the server population is greater than or equal to this value
@@ -54417,7 +54421,7 @@ scripts = [
 	   (player_get_unique_id,":player_uid",":player"),
 	   (try_begin),
 	     (this_or_next|eq,":player_uid",919212), # Hans
-	     (eq,":player_uid",777777777777),
+		  (eq,":player_uid",777777777777),
 		 (player_set_slot,":player",adimi_tool_admin_level_low,1),
 		 (multiplayer_send_2_int_to_player, ":player", adimi_tool_client_event, adimi_tool_set_admin_level,1),
 	   (else_try),
@@ -54800,7 +54804,7 @@ scripts = [
     (this_or_next|eq, "$g_multiplayer_players_list_action_type", 11),#Spawn items/horse system
     (this_or_next|eq, "$g_multiplayer_players_list_action_type", 15),#Switch Teams
     (this_or_next|eq, "$g_multiplayer_players_list_action_type", 16),#Teleport ||| NOT 17 TP!!
-    (this_or_next|eq, "$g_multiplayer_players_list_action_type", 18),#Frezze
+    (this_or_next|eq, "$g_multiplayer_players_list_action_type", 18),#Freeze
     (this_or_next|eq, "$g_multiplayer_players_list_action_type", 19),#Total fix
     (eq, "$g_multiplayer_players_list_action_type", 13),#print GAMEID
   ]),
