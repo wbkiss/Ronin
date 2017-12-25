@@ -43,13 +43,13 @@ set_enable_valve_anti_cheat 0
 #max_num_bots <value> #set the max number of total bots the server is allowed to spawn (50-500)
 max_num_bots 10
 
-#other modes ( multiplayer_duel , multiplayer_bt , multiplayer_cf , multiplayer_hq , multiplayer_fd , multiplayer_sg , multiplayer_tdm, multiplayer_dm )
+# other modes ( multiplayer_duel , multiplayer_bt , multiplayer_cf , multiplayer_hq , multiplayer_fd , multiplayer_sg , multiplayer_tdm, multiplayer_dm )
 set_mission multiplayer_bt
 set_map multi_scene_new_port_assault # Closed
 add_map multi_scene_1 # Ruins, mixed
 add_map multi_scene_back_to_back # Closed
 add_map multi_scene_7 # FbtR, Open
-# add_map multi_scene_hharkin # Closed, removed -- broken flags
+add_map multi_scene_hharkin # Closed
 add_map multi_scene_enl_reveranvillage # Mixed
 add_map multi_scene_wnl_shariz_village # Closed
 add_map multi_scene_frosthaven # Open
@@ -61,8 +61,8 @@ add_map multi_scene_castellum # Open
 add_map multi_scene_goldrush # Mixed
 add_map multi_scene_solace # Mixed
 add_map multi_scene_wnl_mountain_fortress # Mixed
-# add_map multi_scene_new_nord_town # Closed, disabled due to glitches.
-add_map multi_scene_11 # Classic Nord Town, Closed.
+add_map multi_scene_new_nord_town # Closed
+# add_map multi_scene_11 # Classic Nord Town, Closed.
 add_map multi_scene_enl_frostybattle # Mixed
 add_map multi_scene_rock_port # Mixed
 add_map multi_scene_enl_vendetta # Closed
@@ -75,16 +75,15 @@ add_map multi_scene_stronghold # Closed
 add_map multi_scene_desolation_valley # Open
 add_map multi_scene_wnl_verloren # Closed
 add_map multi_scene_wnl_castle_ruins # Open
-# add_map multi_scene_dreiecksdorf # Mixed. Disabled until the multiple roof glitches are fixed
+add_map multi_scene_dreiecksdorf # Mixed.
+add_map multi_scene_heisenburg # Mixed
 add_map multi_scene_steppe_village # Open
 add_map multi_scene_wnl_khudan_outskirts # Mixed
 add_map multi_scene_wnl_port_azur # Closed
 add_map multi_scene_ismirala # Mixed
 add_map multi_scene_naval_outpost # Mixed
 
-
 # add_map multi_scene_sea_raiders_landing # Open
-# add_map multi_scene_heisenburg # disabled, bugged flags
 # add_map multi_scene_wnl_dry_valley # disabled, bugged trees
 # add_map multi_scene_24 # Desert Town, need to add in the module_scenes, mixed
 
