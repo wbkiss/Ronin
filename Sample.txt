@@ -82,10 +82,11 @@ add_map multi_scene_wnl_khudan_outskirts # Mixed
 add_map multi_scene_wnl_port_azur # Closed
 add_map multi_scene_ismirala # Mixed
 add_map multi_scene_naval_outpost # Mixed
+# add_map multi_scene_24 # Desert Town, not in the latest module scenes, mixed
 
 # add_map multi_scene_sea_raiders_landing # Open
 # add_map multi_scene_wnl_dry_valley # disabled, bugged trees
-# add_map multi_scene_24 # Desert Town, need to add in the module_scenes, mixed
+
 
 #adding all kingdoms to both sides just to randomize all of them
 #adding less kingdoms will reduce the randomization set (used in set_randomize_factions command)
