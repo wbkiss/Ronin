@@ -2049,3 +2049,6 @@ adimi_tool_server_message_5 = "str_custom_server_message_5"
 #Custom strings  truppen erstellen  string namen setzen
 #ToDo:
 #/
+
+# MB Anti-Cheat
+slot_player_unblockable_count = 1000
