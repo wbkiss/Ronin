@@ -672,5 +672,16 @@ script_wse_console_command_received = 670
 script_wse_get_agent_scale = 671
 script_wse_window_opened = 672
 script_game_missile_dives_into_water = 673
+script_mbac_init = 674
+script_mbac_init_player = 675
+script_mbac_log_message = 676
+script_mbac_broadcast_message = 677
+script_mbac_hack_consequence = 678
+script_mbac_ti_player_joined = 679
+script_mbac_ti_mission_end = 680
+script_cf_mbac_ti_agent_spawn = 681
+script_cf_mbac_ti_agent_hit = 682
+script_mbac_ti_once = 683
+script_mbac_ti_each_frame = 684
 
 
