@@ -4700,11 +4700,11 @@ Admins: {s6}^\
 ("adimi_tool_game_start_message_3", " "),
 
 
-("custom_server_message_1", "Welcome to Ronin server, located in Chicago!"),
-("custom_server_message_2", "Please, have fun and let others have fun too!"),
-("custom_server_message_3", "Please, do not intentionally teamkill, glitch or abuse other players."),
-("custom_server_message_4", "Repetitive teamkillers will be kicked and banned automatically."),
-("custom_server_message_5", "Please, help the administrators keep this server a fun and friendly environment by following their instructions."),
+("custom_server_message_1", "Welcome to the Ronin server, located in Chicago! Have fun and let others have fun too. And check out the server rules."),
+("custom_server_message_2", "Please, do not intentionally teamkill, glitch or abuse other players. Repetitive intentional teamkillers will be kicked and banned."),
+("custom_server_message_3", "Please, help the administrators keep this server a fun and friendly environment by following their instructions."),
+("custom_server_message_4", "This server is for friendly, casual play and good sportsmanship. Please, treat your teammates and opponents with respect. Polite, friendly rivalry is fine, abuse is not."),
+("custom_server_message_5", "Love of Warband brings people of different backgrounds to this server, and is all that really matters. The server is not the place to express your opinions on politics, religion, ethnicities and other issues not related to the game."),
 
 
 #AdimiTool WSE
