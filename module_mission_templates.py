@@ -32,15 +32,16 @@ from module_constants import *
 # 
 ####################################################################################################################
 
+#MBAC begin
 mb_anti_cheat = [
   (ti_server_player_joined, 0, 0, [],
   [
-    (call_script, "script_mbac_ti_player_joined"),
+    (call_script, "script_cf_mbac_ti_player_joined"),
   ]),
  
   (ti_on_multiplayer_mission_end, 0, 0, [],
   [
-    (call_script, "script_mbac_ti_mission_end"),
+    (call_script, "script_cf_mbac_ti_mission_end"),
   ]),
  
   (ti_on_agent_spawn, 0, 0, [],
@@ -55,14 +56,15 @@ mb_anti_cheat = [
  
   (0, 0, ti_once, [],
   [
-    (call_script, "script_mbac_ti_once"),
+    (call_script, "script_cf_mbac_ti_once"),
   ]),
  
   (0, 0, 0, [],
   [
-    (call_script, "script_mbac_ti_each_frame"),
+    (call_script, "script_cf_mbac_ti_each_frame"),
   ]),
 ]
+#MBAC end
 
 pilgrim_disguise = [itm_pilgrim_hood,itm_pilgrim_disguise,itm_practice_staff, itm_throwing_daggers]
 af_castle_lord = af_override_horse | af_override_weapons| af_require_civilian

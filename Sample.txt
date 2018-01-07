@@ -98,6 +98,38 @@ add_factions fac_kingdom_5 fac_kingdom_5 # Rhodoks
 add_factions fac_kingdom_6 fac_kingdom_6 # Sarranids
 set_randomize_factions 1
 
+#MBAC begin
+# reusing class limit commands to set parameters
+
+# determines what hacks should be detected
+# 101 = disable, 102 = enable 
+limit_grenadier 102 #unblockable hack
+limit_skirmisher 102 #autoblock hack
+limit_rifle 102 #aimbot hack
+
+# logs plenty of data for later parameter fine-tuning
+# 101 = disable, 102 = enable 
+limit_cavalry 102 #advanced logging
+
+# sends the joining player a message that this server is unsing anti cheat
+# 101 = disable, 102 = enable 
+limit_lancer 101 #player join message
+
+# consequence when a player got detected using hacks
+# 101 = message only
+# 102 = perma ban
+# 103 = temp ban
+# 104 = kick 
+limit_hussar 101 #hack consequence
+
+# determines what type of message should be issued when the specific condition occours
+# 101 = server log only
+# 102 = broadcast to all players
+# 103 = broadcast admins only
+limit_dragoon 101 #hack warnings
+limit_cuirassier 103 #hack consequences
+
+#MBAC end
 
 
 ###########################################################################
