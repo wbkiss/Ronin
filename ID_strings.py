@@ -3799,5 +3799,24 @@ str_adimi_tool_wse_command_info = 3797
 str_adimi_tool_wse_command_signup = 3798
 str_adimi_tool_wse_command_hungergames_playerlist = 3799
 str_adimi_tool_wse_command_cheer = 3800
+str_hack_0 = 3801
+str_hack_1 = 3802
+str_hack_2 = 3803
+str_hack_0_log = 3804
+str_hack_1_log = 3805
+str_hack_2_log = 3806
+str_hack_consequence_1 = 3807
+str_hack_consequence_0 = 3808
+str_hack_consequence_1 = 3809
+str_hack_consequence_2 = 3810
+str_hack_option_0 = 3811
+str_hack_option_1 = 3812
+str_hack_consequence_option_1 = 3813
+str_hack_consequence_option_0 = 3814
+str_hack_consequence_option_1 = 3815
+str_hack_consequence_option_2 = 3816
+str_hack_broadcast_option_1 = 3817
+str_hack_broadcast_option_0 = 3818
+str_hack_broadcast_option_1 = 3819
 
 
