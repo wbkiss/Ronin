@@ -1972,7 +1972,7 @@ troops = [
    str_16 | agi_15 |def_attrib_multiplayer|level(19),wpe(110,90,60,110),knows_common_multiplayer|knows_riding_5|knows_ironflesh_4|knows_power_strike_3|knows_shield_3|knows_power_throw_4|knows_horse_archery_1,vaegir_face_young_1, vaegir_face_older_2],
   ["khergit_veteran_horse_archer_multiplayer","Khergit Horse Archer","Khergit Horse Archers",tf_mounted|tf_guarantee_all,0,0,fac_kingdom_3,
    [itm_sword_khergit_1,itm_nomad_bow,
-    itm_khergit_armor,itm_leather_steppe_cap_a,itm_hide_boots],
+    itm_khergit_armor,itm_leather_steppe_cap_a,itm_hide_boots,itm_steppe_horse],
    str_15 | agi_18 |def_attrib_multiplayer|level(21),wpe(70,142,60,100),knows_common_multiplayer|knows_riding_2|knows_power_draw_3|knows_horse_archery_1|knows_athletics_3|knows_shield_1,khergit_face_middle_1, khergit_face_older_2],
   ["khergit_infantry_multiplayer","Khergit Infantry","Khergit Infantries",tf_guarantee_all,0,0,fac_kingdom_3,
    [itm_sword_khergit_1,itm_spear,itm_tab_shield_small_round_a,
