@@ -8192,7 +8192,8 @@ scripts = [
 			(this_or_next|eq, ":id", 710570), # No_Feint_Fred
 			(this_or_next|eq, ":id", 1089642), # oldcracks
 			# (this_or_next|eq, ":id", 88669), # Sheeper
-            (eq, ":id", 3121891),           # CC_Platypus
+            (this_or_next|eq, ":id", 3121891),           # CC_Platypus
+			(eq, ":id", 3224114),           # Jungle_Glendor
             (player_set_is_muted, ":player_no", 1, 1),
          (try_end),
 		 # -- Perma-mute script End
