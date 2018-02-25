@@ -1,5 +1,6 @@
 #uncomment the line below when you set a valid administrator password
-set_pass_admin verboten
+set_pass_admin xagI9BA
+
 #if you have premium members, set a password for them, otherwise delete/comment out the line below
 #uncomment the line below when you set a valid private password
 #set_pass_private 
@@ -133,7 +134,6 @@ limit_cuirassier 103 #hack consequences
 
 #MBAC end
 
-
 ###########################################################################
 # If using another Configuration file such as Battle.txt be sure to copy and paste all of the below information or else risk suspension of account.
 #DO NOT EDIT player slots above the number you paid for, your account will be suspended if done.
@@ -142,9 +142,8 @@ set_max_players 90 90
 #Setting this too high or too low will cause lag, make sure before changing to contact a tech.  1000000x number of slots is what we most recommend if all clients have high speed connections.
 set_upload_limit 100000000
 #DO NOT EDIT anything below this line.  Also be sure if you use a different module or config file that these settings are transferred over.
-set_port 7540
-set_steam_port 7541
+set_port 7440
+set_steam_port 7441
 set_server_log_folder Logs
 set_server_ban_list_file Logs\ban_list.txt
-start
- 
+start 
