@@ -54461,6 +54461,7 @@ scripts = [
 		 (this_or_next|eq,":player_uid",646055), # Courtney
 		 (this_or_next|eq,":player_uid",1502092), # Xearian
 		 (this_or_next|eq,":player_uid",390452), # Mad Dawg
+		 (this_or_next|eq,":player_uid",130559), # Fehnor
 	     (eq,":player_uid",163189), # Earacorn/[HB] Corn
 		 (player_set_slot,":player",adimi_tool_admin_level_high,1),
 		 (multiplayer_send_2_int_to_player, ":player", adimi_tool_client_event, adimi_tool_set_admin_level,3),
