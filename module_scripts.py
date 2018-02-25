@@ -8192,7 +8192,8 @@ scripts = [
 			(this_or_next|eq, ":id", 710570), # No_Feint_Fred
 			(this_or_next|eq, ":id", 1089642), # oldcracks
 			# (this_or_next|eq, ":id", 88669), # Sheeper
-            (eq, ":id", 3121891),           # CC_Platypus
+            (this_or_next|eq, ":id", 3121891),           # CC_Platypus
+			(eq, ":id", 3224114),           # Jungle_Glendor
             (player_set_is_muted, ":player_no", 1, 1),
          (try_end),
 		 # -- Perma-mute script End
@@ -54430,6 +54431,8 @@ scripts = [
 	   (try_begin),
 	      (this_or_next|eq,":player_uid",919212), # Hans
 		  (this_or_next|eq,":player_uid",1085169), # Alyss
+		  (this_or_next|eq,":player_uid",1123754), # Sky_Arrow
+		  (this_or_next|eq,":player_uid",1537560), # Nessa
 		  (eq,":player_uid",777777777777),
 		 (player_set_slot,":player",adimi_tool_admin_level_low,1),
 		 (multiplayer_send_2_int_to_player, ":player", adimi_tool_client_event, adimi_tool_set_admin_level,1),
