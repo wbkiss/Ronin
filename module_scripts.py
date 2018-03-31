@@ -54362,7 +54362,7 @@ scripts = [
     (try_begin),#adimi_tool_already_joined = already joined slot (anti spam "player xyz joined...." bug)
      (player_is_active,":player"),
 	 (gt,":player",0),
-     (player_get_unique_id,":uid",":player"), #can only bew used on server side
+     (player_get_unique_id,":uid",":player"), #can only be used on server side
 	 (assign,":continue",0),
      (try_begin),
       (lt,":uid",player_uid_limit),
@@ -54433,6 +54433,7 @@ scripts = [
 		  (this_or_next|eq,":player_uid",1085169), # Alyss
 		  (this_or_next|eq,":player_uid",1123754), # Sky_Arrow
 		  (this_or_next|eq,":player_uid",1537560), # Nessa
+		  (this_or_next|eq,":player_uid",2125359), #HeXed/Cow
 		  (eq,":player_uid",777777777777),
 		 (player_set_slot,":player",adimi_tool_admin_level_low,1),
 		 (multiplayer_send_2_int_to_player, ":player", adimi_tool_client_event, adimi_tool_set_admin_level,1),
