@@ -8,7 +8,7 @@ set_pass_admin xagI9BA
 set_server_name Ronin
 allow_renaming_server 0
 #join server welcome message below
-set_welcome_message Welcome to Ronin server! Have fun and let others have fun too! The commandments of the server:      1. Thou shalt not slay your teammates!                     2. Thou shall not purposefully prolong rounds           3. Thou shall not abuse your fellow players or discriminate on any grounds
+set_welcome_message Welcome to Ronin! Have fun, be nice, play fair and help your team. If you don't know what that means, check our forum: roninwarband.freeforums.net !
 #show on server list
 set_add_to_game_servers_list 1
 #Manual block set to 1, 0 for auto

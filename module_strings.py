@@ -4460,7 +4460,6 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("adimi_tool_map_informations", "-{s4}-^\
 Map: {s2}^\
 Gametype: {s3}^\
-Admins: {s6}^\
 -----------------\
 "),
 ("adimi_tool_poll_result_1", "|-|-|The poll was {reg0?accepted:rejected} by the majority.|-|-|"),
@@ -4700,11 +4699,11 @@ Admins: {s6}^\
 ("adimi_tool_game_start_message_3", " "),
 
 
-("custom_server_message_1", "Welcome to the Ronin server, located in Chicago! Have fun and let others have fun too. And check out the server rules."),
-("custom_server_message_2", "Please, do not intentionally teamkill, glitch or abuse other players. Repetitive intentional teamkillers will be kicked and banned."),
-("custom_server_message_3", "Please, help the administrators keep this server a fun and friendly environment by following their instructions."),
-("custom_server_message_4", "This server is for friendly, casual play and good sportsmanship. Please, treat your teammates and opponents with respect. Polite, friendly rivalry is fine, abuse is not."),
-("custom_server_message_5", "Love of Warband brings people of different backgrounds to this server, and is all that really matters. The server is not the place to express your opinions on politics, religion, ethnicities and other issues not related to the game."),
+("custom_server_message_1", "Welcome to the Ronin server, located in Chicago! Have fun!"),
+("custom_server_message_2", "Visit our forum at https://roninwarband.freeforums.net/"),
+("custom_server_message_3", "Please, be nice, play fair and help your team. See the forum for detailed rules."),
+("custom_server_message_4", "Visit our forum at https://roninwarband.freeforums.net/"),
+("custom_server_message_5", "Please, be nice, play fair and help your team. See the forum for detailed rules."),
 
 
 #AdimiTool WSE
